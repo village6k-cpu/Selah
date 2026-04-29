@@ -151,13 +151,68 @@ a { color: inherit; text-decoration: none; }
   max-width: 540px;
 }
 
-/* Week heading (for daily) */
-.week-label {
+/* Week toggle (for daily) */
+.week-block {
+  border-top: 1px solid var(--line);
+}
+.week-block:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+.week-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 0;
+  cursor: pointer;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  transition: padding-left 220ms ease;
+}
+.week-toggle:hover, .week-toggle:focus-visible {
+  padding-left: 12px;
+  outline: none;
+}
+.week-toggle:hover .week-title {
+  color: var(--accent);
+}
+.week-title {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  font-weight: 700;
+  font-size: clamp(15px, 3.5vw, 17px);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  transition: color 160ms ease;
+}
+.week-meta {
   font-family: "Noto Serif KR", serif;
   font-style: italic;
-  color: var(--accent);
-  font-size: 14px;
-  margin: 24px 0 12px;
+  font-size: 12px;
+  color: var(--muted);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.week-arrow {
+  display: inline-block;
+  font-size: 10px;
+  color: var(--muted);
+  transition: transform 220ms ease;
+}
+.week-block[data-open="true"] .week-arrow {
+  transform: rotate(90deg);
+}
+.week-issues {
+  display: none;
+  padding-bottom: 8px;
+}
+.week-block[data-open="true"] .week-issues {
+  display: block;
 }
 
 /* Empty state */
@@ -280,58 +335,62 @@ a { color: inherit; text-decoration: none; }
     <div class="section-label">§ Daily Selah · 예수대학</div>
     <p class="section-desc">예수대학 커리큘럼에 보조를 맞춰, 한 주에 걸쳐 본문을 절별로 천천히 묵상합니다.</p>
 
-    <div class="week-label">Week 1 · 갈라디아서 개관</div>
-
-    <ol class="issues">
-      <li>
-        <a class="issue" href="daily/20260427.html">
-          <div class="issue-date">4월 27일 (월)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 1:6–7</span><span class="sep">·</span>한 편지가 우리에게 오기까지
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="issue" href="daily/20260428.html">
-          <div class="issue-date">4월 28일 (화)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 1:8</span><span class="sep">·</span>갈라디아서가 쓰여진 자리
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="issue" href="daily/20260429.html">
-          <div class="issue-date">4월 29일 (수)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 2:16</span><span class="sep">·</span>자기 의의 길
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="issue" href="daily/20260430.html">
-          <div class="issue-date">4월 30일 (목)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 2:20</span><span class="sep">·</span>갈라디아서의 심장
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="issue" href="daily/20260501.html">
-          <div class="issue-date">5월 1일 (금)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 5:1</span><span class="sep">·</span>그리스도께서 우리를 자유롭게 하셨다
-          </div>
-        </a>
-      </li>
-      <li>
-        <a class="issue" href="daily/20260502.html">
-          <div class="issue-date">5월 2일 (토)</div>
-          <div class="issue-title">
-            <span class="ref">갈라디아서 5:6</span><span class="sep">·</span>사랑으로 역사하는 믿음
-          </div>
-        </a>
-      </li>
-    </ol>
+    <div class="week-block" data-open="true">
+      <button class="week-toggle" type="button" aria-expanded="true">
+        <span class="week-title">Week 1 · 갈라디아서 개관</span>
+        <span class="week-meta">4월 27일 – 5월 2일 <span class="week-arrow">▸</span></span>
+      </button>
+      <ol class="issues week-issues">
+        <li>
+          <a class="issue" href="daily/20260427.html">
+            <div class="issue-date">4월 27일 (월)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 1:6–7</span><span class="sep">·</span>한 편지가 우리에게 오기까지
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="issue" href="daily/20260428.html">
+            <div class="issue-date">4월 28일 (화)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 1:8</span><span class="sep">·</span>갈라디아서가 쓰여진 자리
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="issue" href="daily/20260429.html">
+            <div class="issue-date">4월 29일 (수)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 2:16</span><span class="sep">·</span>자기 의의 길
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="issue" href="daily/20260430.html">
+            <div class="issue-date">4월 30일 (목)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 2:20</span><span class="sep">·</span>갈라디아서의 심장
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="issue" href="daily/20260501.html">
+            <div class="issue-date">5월 1일 (금)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 5:1</span><span class="sep">·</span>그리스도께서 우리를 자유롭게 하셨다
+            </div>
+          </a>
+        </li>
+        <li>
+          <a class="issue" href="daily/20260502.html">
+            <div class="issue-date">5월 2일 (토)</div>
+            <div class="issue-title">
+              <span class="ref">갈라디아서 5:6</span><span class="sep">·</span>사랑으로 역사하는 믿음
+            </div>
+          </a>
+        </li>
+      </ol>
+    </div>
   </section>
 
 </main>
@@ -367,6 +426,16 @@ a { color: inherit; text-decoration: none; }
   window.addEventListener('hashchange', () => {
     const nh = (location.hash || '').replace('#', '');
     if (valid.includes(nh)) activate(nh, false);
+  });
+
+  // Week toggles (Daily Selah)
+  document.querySelectorAll('.week-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const block = btn.closest('.week-block');
+      const isOpen = block.dataset.open === 'true';
+      block.dataset.open = isOpen ? 'false' : 'true';
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
   });
 })();
 </script>
