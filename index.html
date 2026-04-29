@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -89,9 +90,51 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink); opacity: 0.55;
 }
 
+/* Editor's Note — sits between wordmark and tabs */
+.editors-note {
+  margin: 56px auto 0;
+  max-width: 580px;
+  padding: 22px 24px 24px;
+  background: #faf7f1;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  position: relative;
+}
+@media (min-width: 720px) {
+  .editors-note { margin-top: 72px; padding: 26px 30px 28px; }
+}
+.editors-note-label {
+  display: block;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.editors-note p {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  word-break: keep-all;
+  text-align: justify;
+  text-justify: inter-character;
+  text-align-last: left;
+  hanging-punctuation: first last;
+}
+.editors-note p strong {
+  font-weight: 600;
+  color: var(--ink);
+  background: linear-gradient(transparent 60%, rgba(90, 58, 31, 0.14) 60%);
+  padding: 0 1px;
+}
+
 /* Tabs */
 .tabs {
-  margin: 80px 0 40px;
+  margin: 56px 0 40px;
   display: flex;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -297,6 +340,12 @@ a { color: inherit; text-decoration: none; }
     </svg>
     <div class="wordmark-caption">Weekly Meditation</div>
   </div>
+
+  <!-- Editor's Note -->
+  <aside class="editors-note" aria-label="편집자 노트">
+    <span class="editors-note-label">Editor&rsquo;s Note</span>
+    <p>이 묵상 노트는 <strong>일반 AI의 검색 지식이 아니라</strong>, 신뢰할 만한 개혁주의 신학 도서들(칼빈·바빙크·웨스트민스터 신앙고백 등)을 기반으로 한 RAG 시스템으로 작성됩니다. 출처를 확인할 수 있는 책들 위에서 본문을 풀기 때문에, 인터넷에 떠도는 출처 불명의 자료 대신 검증된 신학적 토대 위에서 함께 묵상하실 수 있습니다.</p>
+  </aside>
 
   <!-- Tabs -->
   <div class="tabs" role="tablist">
