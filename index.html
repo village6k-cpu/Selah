@@ -43,8 +43,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+KR:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+KR:wght@400;500;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 
 <style>
@@ -54,10 +54,8 @@
   --ink-soft:  #34363f;
   --muted:     #6c6e76;
   --line:      #d9d4c7;
-  --line-soft: #e7e3d8;
-  --accent:    #5a3a1f;   /* deep brown */
+  --accent:    #5a3a1f;
 }
-
 * { box-sizing: border-box; }
 html, body {
   margin: 0; padding: 0;
@@ -65,10 +63,8 @@ html, body {
   color: var(--ink);
   font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   word-break: keep-all;
 }
-
 a { color: inherit; text-decoration: none; }
 
 .page {
@@ -76,84 +72,122 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 80px 28px 120px;
 }
-@media (min-width: 720px) {
-  .page { padding: 120px 40px 160px; }
-}
+@media (min-width: 720px) { .page { padding: 120px 40px 160px; } }
 
-/* ───── Wordmark (splash style) ───── */
-.wordmark-block {
-  text-align: center;
-  margin: 0 0 16px;
-}
+/* Wordmark */
+.wordmark-block { text-align: center; margin: 0 0 16px; }
 .wordmark-svg {
   width: clamp(280px, 60vw, 540px);
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  height: auto; display: block; margin: 0 auto;
 }
 .wordmark-caption {
   margin: 26px 0 0;
-  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard", sans-serif;
   font-size: clamp(10px, 2.4vw, 12px);
   letter-spacing: 0.6em;
   text-transform: uppercase;
-  color: var(--ink);
-  opacity: 0.55;
-}
-@media (min-width: 720px) {
-  .wordmark-caption { letter-spacing: 0.7em; }
+  color: var(--ink); opacity: 0.55;
 }
 
-/* ───── Section label ───── */
+/* Tabs */
+.tabs {
+  margin: 80px 0 40px;
+  display: flex;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 720px) { .tabs { margin-top: 100px; } }
+.tab {
+  flex: 1;
+  padding: 18px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  font-size: clamp(13px, 3vw, 15px);
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  position: relative;
+  transition: color 160ms ease;
+  text-align: center;
+  line-height: 1.3;
+}
+.tab + .tab { border-left: 1px solid var(--line); }
+.tab:hover { color: var(--ink-soft); }
+.tab[aria-selected="true"] {
+  color: var(--accent);
+  font-weight: 700;
+}
+.tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* Panels */
+.panel { display: none; }
+.panel[aria-hidden="false"] { display: block; }
+
+/* Section heading inside panel */
 .section-label {
   font-family: "Noto Serif KR", serif;
   font-style: italic;
   font-size: 13px;
   color: var(--accent);
-  letter-spacing: 0.04em;
-  margin: 88px 0 6px;
+  margin: 0 0 6px;
 }
-@media (min-width: 720px) {
-  .section-label { margin-top: 112px; }
-}
-.section-meta {
+.section-desc {
   font-family: "Pretendard", sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 1.6;
   color: var(--muted);
-  margin: 0 0 40px;
+  margin: 0 0 28px;
+  max-width: 540px;
 }
 
-/* ───── Issue list ───── */
-.issues {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid var(--line);
+/* Week heading (for daily) */
+.week-label {
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 14px;
+  margin: 24px 0 12px;
 }
-.issues li {
+
+/* Empty state */
+.empty-state {
+  padding: 32px 0;
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+
+/* Issue list */
+.issues {
+  list-style: none; padding: 0; margin: 0;
+  border-top: 1px solid var(--line);
+}
+.issues li { border-bottom: 1px solid var(--line); }
 .issue {
   display: block;
-  padding: 28px 0;
+  padding: 24px 0;
   transition: padding-left 220ms ease, color 160ms ease;
 }
-@media (min-width: 720px) {
-  .issue { padding: 36px 0; }
+@media (min-width: 720px) { .issue { padding: 30px 0; } }
+.issue:hover, .issue:focus-visible {
+  padding-left: 12px; outline: none;
 }
-.issue:hover,
-.issue:focus-visible {
-  padding-left: 12px;
-  outline: none;
-}
-.issue:hover .issue-date,
-.issue:focus-visible .issue-date {
-  color: var(--accent);
-}
-.issue:hover .issue-title,
-.issue:focus-visible .issue-title {
+.issue:hover .issue-date { color: var(--accent); }
+.issue:hover .issue-title {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
@@ -161,18 +195,18 @@ a { color: inherit; text-decoration: none; }
 }
 
 .issue-date {
-  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
   font-weight: 700;
-  font-size: clamp(18px, 4.4vw, 22px);
+  font-size: clamp(17px, 4.2vw, 21px);
   line-height: 1.4;
   color: var(--ink);
   letter-spacing: -0.01em;
   transition: color 160ms ease;
 }
 .issue-title {
-  margin-top: 8px;
-  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
-  font-size: clamp(14px, 3.2vw, 15.5px);
+  margin-top: 6px;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", serif;
+  font-size: clamp(13.5px, 3vw, 15px);
   line-height: 1.65;
   color: var(--muted);
   text-wrap: pretty;
@@ -181,22 +215,13 @@ a { color: inherit; text-decoration: none; }
   font-style: italic;
   color: var(--ink-soft);
 }
-.issue-title .sep {
-  margin: 0 8px;
-  opacity: 0.5;
-}
+.issue-title .sep { margin: 0 8px; opacity: 0.5; }
 
-/* ───── Footer ───── */
-.foot {
-  margin-top: 96px;
-  text-align: center;
-  font-family: "Pretendard", sans-serif;
-  font-size: 10.5px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--muted);
-  opacity: 0.7;
-}
+/* Daily denser */
+#panel-daily .issue { padding: 18px 0; }
+@media (min-width: 720px) { #panel-daily .issue { padding: 22px 0; } }
+#panel-daily .issue-date { font-size: clamp(15px, 3.6vw, 17px); }
+#panel-daily .issue-title { font-size: clamp(13px, 2.8vw, 14px); margin-top: 4px; }
 
 @media (max-width: 480px) {
   .issue-title .sep { display: block; margin: 4px 0 0; height: 0; opacity: 0; }
@@ -218,25 +243,133 @@ a { color: inherit; text-decoration: none; }
     <div class="wordmark-caption">Weekly Meditation</div>
   </div>
 
-  <div class="section-label">§ Issues</div>
-  <div class="section-meta">묵상 노트 · 역순</div>
+  <!-- Tabs -->
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="sunday" aria-selected="true"  aria-controls="panel-sunday">주일 예배</button>
+    <button class="tab" role="tab" data-tab="youth"  aria-selected="false" aria-controls="panel-youth">청년2부 예배</button>
+    <button class="tab" role="tab" data-tab="daily"  aria-selected="false" aria-controls="panel-daily">Daily Selah</button>
+  </div>
 
-  <!-- 새 호 추가하는 방법: 아래 <li> 블록을 복사해서 가장 위에 붙여넣고
-       날짜, 본문, 부제, href 수정 -->
-  <ol class="issues">
+  <!-- Panel: 주일 예배 -->
+  <section class="panel" id="panel-sunday" role="tabpanel" aria-hidden="false">
+    <div class="section-label">§ Weekly Meditation · 주일 예배</div>
+    <p class="section-desc">담임목사님 주일 오전예배 설교 요약과 깊이 있는 참고 자료.</p>
 
-    <li>
-      <a class="issue" href="20260426.html">
-        <div class="issue-date">2026년 4월 26일 주일 오전예배</div>
-        <div class="issue-title">
-          <span class="ref">이사야 40:18–20</span><span class="sep">·</span>비교불가능한 하나님 ③ — 우상과 나란히 설 수 없는 하나님
-        </div>
-      </a>
-    </li>
+    <ol class="issues">
+      <li>
+        <a class="issue" href="20260426.html">
+          <div class="issue-date">2026년 4월 26일 주일 오전예배</div>
+          <div class="issue-title">
+            <span class="ref">이사야 40:18–20</span><span class="sep">·</span>비교불가능한 하나님 ③ — 우상과 나란히 설 수 없는 하나님
+          </div>
+        </a>
+      </li>
+    </ol>
+  </section>
 
-  </ol>
+  <!-- Panel: 청년2부 예배 -->
+  <section class="panel" id="panel-youth" role="tabpanel" aria-hidden="true">
+    <div class="section-label">§ Weekly Meditation · 청년2부 예배</div>
+    <p class="section-desc">청년2부 예배 설교 요약과 깊이 있는 참고 자료.</p>
+
+    <div class="empty-state">첫 호를 준비하고 있습니다.</div>
+  </section>
+
+  <!-- Panel: 예수대학 (Daily Selah) -->
+  <section class="panel" id="panel-daily" role="tabpanel" aria-hidden="true">
+    <div class="section-label">§ Daily Selah · 예수대학</div>
+    <p class="section-desc">예수대학 커리큘럼에 보조를 맞춰, 한 주에 걸쳐 본문을 절별로 천천히 묵상합니다.</p>
+
+    <div class="week-label">Week 1 · 갈라디아서 개관</div>
+
+    <ol class="issues">
+      <li>
+        <a class="issue" href="daily/20260427.html">
+          <div class="issue-date">4월 27일 (월)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 1:6–7</span><span class="sep">·</span>한 편지가 우리에게 오기까지
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="issue" href="daily/20260428.html">
+          <div class="issue-date">4월 28일 (화)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 1:8</span><span class="sep">·</span>갈라디아서가 쓰여진 자리
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="issue" href="daily/20260429.html">
+          <div class="issue-date">4월 29일 (수)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 2:16</span><span class="sep">·</span>자기 의의 길
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="issue" href="daily/20260430.html">
+          <div class="issue-date">4월 30일 (목)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 2:20</span><span class="sep">·</span>갈라디아서의 심장
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="issue" href="daily/20260501.html">
+          <div class="issue-date">5월 1일 (금)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 5:1</span><span class="sep">·</span>그리스도께서 우리를 자유롭게 하셨다
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="issue" href="daily/20260502.html">
+          <div class="issue-date">5월 2일 (토)</div>
+          <div class="issue-title">
+            <span class="ref">갈라디아서 5:6</span><span class="sep">·</span>사랑으로 역사하는 믿음
+          </div>
+        </a>
+      </li>
+    </ol>
+  </section>
 
 </main>
+
+<script>
+(function() {
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+
+  function activate(name, push) {
+    tabs.forEach(t => {
+      const on = t.dataset.tab === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(p => {
+      const on = p.id === 'panel-' + name;
+      p.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    if (push && location.hash !== '#' + name) {
+      history.replaceState(null, '', '#' + name);
+    }
+  }
+
+  tabs.forEach(t => {
+    t.addEventListener('click', () => activate(t.dataset.tab, true));
+  });
+
+  // Init from hash
+  const h = (location.hash || '').replace('#', '');
+  const valid = ['sunday', 'youth', 'daily'];
+  activate(valid.includes(h) ? h : 'sunday', false);
+
+  window.addEventListener('hashchange', () => {
+    const nh = (location.hash || '').replace('#', '');
+    if (valid.includes(nh)) activate(nh, false);
+  });
+})();
+</script>
 
 </body>
 </html>
