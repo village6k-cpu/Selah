@@ -281,7 +281,12 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
   padding: 14px 0 14px 20px;
   margin: 22px 0 0;
 }
-.vA .scripture p { margin: 0 0 10px; text-wrap: pretty; }
+.vA .scripture p {
+  margin: 0 0 10px;
+  text-align: justify;
+  text-justify: inter-character;
+  word-break: keep-all;
+}
 .vA .scripture p:last-child { margin: 0; }
 .vA .scripture .v { color: var(--accent); font-size: 11px; font-weight: 600; margin-right: 8px; vertical-align: 2px; letter-spacing: 0.04em; }
 .vA .scripture .b { display: inline; }
@@ -302,7 +307,10 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
   color: var(--ink);
   padding: 32px 0 28px;
   border-bottom: 1px solid var(--line);
-  text-wrap: pretty;
+  text-align: justify;
+  text-justify: inter-character;
+  text-align-last: left;
+  word-break: keep-all;
 }
 .vA .one-line .label {
   display: block;
@@ -364,6 +372,8 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
 .vA .summary-item p {
   font-size: 14.5px;
   line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-character;
   color: var(--ink-soft);
   margin: 0;
   text-wrap: pretty;
@@ -414,6 +424,9 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
 .vA .ref-body p {
   font-size: 15px;
   line-height: 1.85;
+  text-align: justify;
+  text-justify: inter-character;
+  hanging-punctuation: first last;
   color: var(--ink-soft);
   margin: 0 0 16px;
   text-wrap: pretty;
@@ -447,6 +460,11 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
   text-transform: uppercase;
   color: var(--muted);
   margin-top: 12px;
+  text-align: right;
+}
+.vA .pull-src::before {
+  content: "— ";
+  opacity: 0.7;
 }
 
 .vA table.idol {
@@ -514,7 +532,9 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
 }
 .vA .gloss-item .def {
   font-size: 13.5px; line-height: 1.7;
-  color: var(--ink-soft); text-wrap: pretty;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-character;
 }
 
 .vA .qa { padding: 0; margin: 0; counter-reset: q; }
@@ -580,6 +600,8 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
 .vA .prayer p {
   font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
   font-size: 16.5px; line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-character;
   margin: 0 0 12px;
   text-wrap: pretty;
 }
@@ -614,7 +636,8 @@ html, body { margin:0; padding:0; background:#f5f2ec; font-family: "Pretendard",
 }
 .vA .read-note {
   font-size: 13px; line-height: 1.65; color: var(--ink-soft);
-  text-wrap: pretty;
+  text-align: justify;
+  text-justify: inter-character;
 }
 
 .vA .closing {
@@ -820,7 +843,7 @@ function Selah() {
             {r.pull && (
               <div className="pull">
                 <q>{r.pull}</q>
-                {r.pullSrc && <div className="pull-src">— {r.pullSrc}</div>}
+                {r.pullSrc && <div className="pull-src">{r.pullSrc}</div>}
               </div>
             )}
           </article>
