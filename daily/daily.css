@@ -1,0 +1,376 @@
+/* ───────────────────────────────────────────────────────────
+   Daily Selah — Weekly Meditation 톤매너 1:1 매칭
+   토큰·간격·타이포 모두 Weekly와 동일.
+   변주: ① 분량이 적어 section padding 축소 (40 → 32)
+        ② Day N of 6 마커 + 묵상 질문 강조 박스
+        ③ 페이지 하단 day-nav (이전/다음 일자)
+   ─────────────────────────────────────────────────────────── */
+
+html, body {
+  margin: 0; padding: 0;
+  background: #f5f2ec;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #1a1c22;
+}
+* { box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+
+/* 한국어 본문: 어절 단위로 줄바꿈, 고아 글자 방지 */
+body, body p, body h1, body h2, body h3, body h4,
+body li, body td, body th, body blockquote, body q, body div {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+:root {
+  --bg: #f5f2ec;
+  --paper: #faf7f1;
+  --ink: #1a1c22;
+  --ink-soft: #3d3f47;
+  --muted: #7a7568;
+  --line: rgba(20,22,28,0.14);
+  --line-soft: rgba(20,22,28,0.08);
+  --accent: #1a2f3a;
+}
+
+/* ───── Page frame ───── */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px var(--line-soft), 0 30px 80px -40px rgba(20,22,28,0.18);
+  padding: 40px 28px 64px;
+  min-height: 100vh;
+}
+@media (min-width: 720px) {
+  .page { padding: 56px 56px 80px; }
+}
+
+/* ───── Masthead ───── */
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 14px;
+  gap: 12px;
+}
+.meta-left {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.meta {
+  text-align: right;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* ───── Back link ───── */
+.back {
+  display: inline-block;
+  margin: 24px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 160ms ease;
+}
+.back:hover { color: var(--accent); }
+.back::before { content: "← "; opacity: 0.7; }
+
+/* ───── Hero ───── */
+.hero { padding: 40px 0 24px; }
+@media (min-width: 720px) { .hero { padding: 48px 0 32px; } }
+
+.series {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.series::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.h1 {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-weight: 700;
+  font-size: clamp(32px, 7vw, 50px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 24px;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.scripture-cite {
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.scripture {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--accent);
+  padding: 14px 0 14px 20px;
+  margin: 22px 0 0;
+}
+.scripture p {
+  margin: 0 0 10px;
+  text-align: justify;
+  text-justify: inter-character;
+  word-break: keep-all;
+}
+.scripture p:last-child { margin: 0; }
+
+/* ───── One-line summary (Day pretitle area) ───── */
+.one-line {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: clamp(18px, 4vw, 22px);
+  line-height: 1.6;
+  color: var(--ink);
+  padding: 32px 0 28px;
+  border-bottom: 1px solid var(--line);
+  text-align: justify;
+  text-justify: inter-character;
+  text-align-last: left;
+  word-break: keep-all;
+}
+.one-line .label {
+  display: block;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ───── Section (본문 안내·인용 풀이) ───── */
+.section {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.section:last-of-type { border-bottom: none; }
+
+.section-num {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+}
+.section-title {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-weight: 700;
+  font-size: clamp(22px, 5vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 6px 0 6px;
+}
+.section-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.section .body p {
+  font-size: 15px;
+  line-height: 1.85;
+  text-align: justify;
+  text-justify: inter-character;
+  hanging-punctuation: first last;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+.section .body p:last-child { margin-bottom: 0; }
+
+/* dropcap on the first paragraph of body, mirroring Weekly's ref-body */
+.section .body.has-dropcap p:first-child::first-letter {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: 50px;
+  line-height: 0.9;
+  float: left;
+  padding: 6px 10px 0 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ───── Quote (인용) — Weekly의 ref pattern을 한 quote 단위로 압축 ───── */
+.quote {
+  margin: 18px 0 0;
+}
+.quote-head {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.quote-tag {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-style: italic;
+  color: var(--accent);
+  font-size: 14px;
+}
+.quote-kicker {
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-left: 1px solid var(--line);
+  padding-left: 10px;
+}
+.quote-body {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 4px 20px;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-character;
+  text-wrap: pretty;
+}
+.quote-body p { margin: 0 0 12px; }
+.quote-body p:last-child { margin: 0; }
+.quote-src {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+.quote-src::before { content: "— "; opacity: 0.7; }
+
+/* ───── Pull quote (한 줄 강조) ───── */
+.pull {
+  margin: 28px 0 8px;
+  padding: 22px 0;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+.pull q {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: clamp(18px, 4.5vw, 22px);
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--ink);
+  quotes: "\201C" "\201D";
+  text-wrap: balance;
+  display: block;
+  text-align: center;
+}
+.pull-src {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 12px;
+  text-align: right;
+}
+.pull-src::before { content: "— "; opacity: 0.7; }
+
+/* ───── Reflection (묵상 질문) ───── */
+.reflection {
+  margin: 32px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--ink);
+}
+.reflection-label {
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+.reflection p {
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0;
+  text-wrap: pretty;
+}
+.reflection p + p {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ───── Day nav (이전/다음) ───── */
+.day-nav {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-family: "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", serif;
+  font-size: 14px;
+}
+.day-nav a {
+  color: var(--ink-soft);
+  transition: color 160ms ease;
+  display: block;
+}
+.day-nav a:hover { color: var(--accent); }
+.day-nav .prev { text-align: left; }
+.day-nav .next { text-align: right; }
+.day-nav .prev::before { content: "← "; opacity: 0.5; }
+.day-nav .next::after { content: " →"; opacity: 0.5; }
+.day-nav span.disabled { display: block; }
+.day-nav .label {
+  display: block;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* ───── Colophon ───── */
+.colophon {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
