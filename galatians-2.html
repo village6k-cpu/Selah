@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>갈라디아서 2장이 어렵게 느껴질 때 · Selah 번외편</title>
+
+<meta name="description" content="세 가지 그림으로 따라가 보는 갈라디아서 2장 — Selah 번외편">
+<meta property="og:type" content="article">
+<meta property="og:title" content="갈라디아서 2장이 어렵게 느껴질 때">
+<meta property="og:description" content="세 가지 그림으로 따라가 보는 갈라디아서 2장 — Selah 번외편">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../daily/daily.css">
+
+<style>
+/* 번외편 전용 — 분량 길이에 맞춘 미세 조정 */
+.bonus-mark {
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-transform: none;
+}
+.bonus-mark::before { content: "✦ "; }
+
+/* 인트로 박스 — 왜 어려운가 */
+.intro-box {
+  margin: 36px 0 8px;
+  padding: 26px 24px;
+  background: rgba(26, 47, 58, 0.04);
+  border-left: 2px solid var(--accent);
+}
+.intro-box p {
+  margin: 0 0 14px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-character;
+}
+.intro-box p:last-child { margin: 0; }
+.intro-box ol {
+  margin: 14px 0;
+  padding-left: 22px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.intro-box ol li { margin-bottom: 6px; }
+.intro-box ol li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 그림 라벨 (Picture I, II, III) */
+.picture-label {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 8px 0 4px;
+}
+.picture-num {
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.picture-num::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-right: 10px;
+  opacity: 0.7;
+}
+
+/* 마무리 — 한 절만 가져간다면 */
+.takeaway {
+  margin: 40px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid var(--ink);
+}
+.takeaway-label {
+  font-family: "Pretendard", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.takeaway-verse {
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(17px, 4vw, 19px);
+  line-height: 1.75;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding: 10px 0 10px 20px;
+  margin: 0 0 22px;
+  font-weight: 500;
+}
+.takeaway-verse cite {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+.takeaway-tail {
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-character;
+}
+.takeaway-tail p { margin: 0 0 12px; }
+.takeaway-tail p:last-child { margin: 0; }
+.takeaway-tail .stanza {
+  margin: 18px 0;
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.takeaway-tail .stanza span {
+  display: block;
+}
+
+/* 번외편 colophon — 헌정 한 줄 */
+.bonus-dedication {
+  margin-top: 56px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--line-soft);
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  text-align: center;
+}
+.bonus-dedication strong {
+  color: var(--accent);
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+/* 본문 안내 첫 단락 dropcap만 끄기 (인트로 박스가 이미 있어서 중복 회피) */
+.section .body p:first-child::first-letter {
+  all: unset;
+}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail" data-bg-color="#1a2f3a">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1a2f3a"/>
+    <g transform="translate(600 400)" fill="none" stroke="#faf7f1" stroke-width="6" stroke-linecap="round">
+      <circle cx="-150" cy="0" r="70" opacity="0.55"/>
+      <circle cx="0" cy="0" r="70" opacity="0.85"/>
+      <circle cx="150" cy="0" r="70" opacity="0.55"/>
+    </g>
+    <text x="600" y="640" text-anchor="middle" fill="#faf7f1" font-family="serif" font-size="44" font-style="italic" letter-spacing="6">Galatians II</text>
+  </svg>
+</template>
+
+<main class="page">
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="meta-left"><span class="bonus-mark">번외편</span></div>
+    <div class="meta">Bonus · Galatians II</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="series">For Her · 갈라디아서 길잡이</div>
+    <h1 class="h1">갈라디아서 2장이<br>어렵게 느껴질 때</h1>
+
+    <div class="scripture-cite">갈라디아서 2장</div>
+    <blockquote class="scripture">
+      <p>세 가지 그림으로 따라가 보는 한 장.</p>
+    </blockquote>
+  </section>
+
+  <!-- 들어가며 -->
+  <section class="section">
+    <div class="section-num">§ 들어가며</div>
+    <h2 class="section-title">왜 갈라디아서 2장은 어려운가</h2>
+    <div class="section-sub">— 한 장 안에 빽빽하게 들어 있는 세 이야기</div>
+
+    <div class="body">
+      <p>갈라디아서 2장이 어려운 이유는 단순하다. <strong>세 가지 다른 이야기가 한 장 안에 빽빽하게 들어 있기 때문</strong>이다.</p>
+    </div>
+
+    <div class="intro-box">
+      <ol>
+        <li>바울이 예루살렘에 올라가 다른 사도들을 만나는 이야기 (2:1–10)</li>
+        <li>바울이 안디옥에서 베드로를 공개적으로 꾸짖는 이야기 (2:11–14)</li>
+        <li>"사람이 의롭게 되는 것은 율법의 행위로 말미암음이 아니요…" 라는 신학 선언 (2:15–21)</li>
+      </ol>
+    </div>
+
+    <div class="body">
+      <p>세 이야기가 너무 빨리 연결되어 있어서 처음 읽으면 "이게 다 무슨 얘기지?" 싶다. 그런데 한 가지만 기억하면 2장 전체가 한 줄로 흐른다.</p>
+    </div>
+
+    <div class="pull">
+      <q>갈라디아서 2장은 "복음에 무엇을 더할 수 있는가?"라는 한 질문을 세 각도에서 다룬다.</q>
+    </div>
+
+    <div class="body">
+      <p>이 한 질문을 머리에 두고, 세 이야기를 차례로 따라가 보자.</p>
+    </div>
+  </section>
+
+  <!-- 그림 1 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">PICTURE I</span>
+    </div>
+    <h2 class="section-title">예루살렘 회의</h2>
+    <div class="section-sub">갈라디아서 2:1–10 · 친교의 악수</div>
+
+    <div class="body">
+      <p>바울이 회심하고 14년이 지난 어느 날, 바울은 바나바와 디도와 함께 예루살렘으로 올라간다. 거기서 "기둥 같이 여기는" 사도들 — 야고보, 베드로, 요한 — 을 만난다.</p>
+      <p><strong>왜 만났는가?</strong> 한 가지 질문 때문이었다. 바울이 이방인들에게 전한 복음 — "할례 없이도 예수만 믿으면 구원받는다" — 이 정말 맞는 복음인가? 다른 사도들이 인정하는가?</p>
+      <p>결과는 명확했다. 사도들은 바울에게 "친교의 악수"(right hand of fellowship)를 건넸다. 바울이 전한 복음이 그들이 전한 복음과 같은 복음이라는 인정. 디도는 헬라인이었지만 할례를 받지 않았고, 사도들도 그것을 요구하지 않았다.</p>
+      <p>바울이 이 이야기를 꺼낸 이유는 단순하다. <strong>갈라디아 교회를 흔들고 있던 거짓 교사들이 "바울은 진짜 사도가 아니다"라고 속삭이고 있었기 때문</strong>이다. 바울이 그들에게 답한다 — 아니다, 예루살렘의 진짜 사도들도 내 복음을 인정했다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">티모시 조지 · Galatians (NAC)</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>그 교회를 어지럽힌 자들은 바울이 자기 복음을 만든 사기꾼이라고 했을 것이다. 바울은 답한다. 보라, 진짜 사도들이 나에게 친교의 악수를 건넸다.</p>
+      </blockquote>
+      <div class="quote-src">Timothy George · Galatians (NAC)</div>
+    </div>
+  </section>
+
+  <!-- 그림 2 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">PICTURE II</span>
+    </div>
+    <h2 class="section-title">안디옥의 충돌</h2>
+    <div class="section-sub">갈라디아서 2:11–14 · 교회 회식에서 일어난 싸움</div>
+
+    <div class="body">
+      <p>이 부분이 갈라디아서 2장에서 가장 드라마틱하다. 라이켄의 풀이가 이 장면을 살린다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">필립 라이켄 · Galatians (REC)</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>그것은 어색한 순간이었다. 교회에서 싸움이 났다는 건 언제나 민망한 일인데, 이번엔 정말 큰 싸움이었다. 한 가지는, 이 일이 교회 회식 중에 일어났다 — 모두가 즐거운 시간을 보내야 하는 자리에서. 또 한 가지는, 싸운 사람들이 교회의 기둥들이었다는 것. 베드로 vs. 바울. 두 사도가 얼굴을 맞대고, 정면으로 부딪쳤다.</p>
+      </blockquote>
+      <div class="quote-src">Philip Ryken · Galatians (REC)</div>
+    </div>
+
+    <div class="body" style="margin-top: 32px;">
+      <p>베드로가 안디옥에 왔다. 안디옥은 유대인 신자와 이방인 신자가 함께 모이는 다민족 교회였다. 베드로는 처음에 이방인 신자들과 <strong>함께 식사</strong>했다. 이게 중요하다 — 유대인이 이방인과 한 식탁에서 먹는다는 건, 당시에 "우리는 같은 하나님의 백성이다"라는 강력한 선언이었다.</p>
+      <p>그런데 예루살렘에서 야고보가 보낸 사람들이 도착했다. 베드로는 갑자기 이방인 신자들과의 식사 자리에서 슬그머니 빠지기 시작했다. 다른 유대인 신자들도 따라 빠졌다. 심지어 바나바까지.</p>
+      <p>바울은 베드로를 <strong>공개적으로</strong> 꾸짖었다. 사도가 사도를, 모든 사람 앞에서. 왜 그렇게까지 했는가? 표면적으로는 식사 자리에서 빠진 사소한 행동 같아 보인다. 그러나 바울은 그 행동이 무엇을 말하고 있는지 정확히 봤다 — <strong>"이방인 신자는 진짜 하나님의 백성이 아니다. 진짜 백성이 되려면 유대인이 되어야 한다."</strong></p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">마틴 루터 · 갈라디아서 주석 (1535)</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>바울에게 이 문제는 양털값이나 빵값을 따지는 사소한 일이 아니었다. 그것은 기독교 신앙의 중심 교리에 관한 것이었다. 베드로가 누구인가? 바울이 누구인가? 하늘에서 온 천사가 누구인가? 칭의의 중심 교리에 비해 모든 다른 피조물이 무슨 가치가 있는가?</p>
+      </blockquote>
+      <div class="quote-src">Martin Luther · Commentary on Galatians (1535)</div>
+    </div>
+
+    <div class="body" style="margin-top: 32px;">
+      <p>베드로의 행동 하나가 갈 수 있는 모든 결과를 바울은 봤다. 만약 이걸 그냥 두면 — 이방인 교회가 둘로 쪼개지고, 복음이 흐려지고, "예수만으로는 부족하다"가 사실이 되어버린다.</p>
+      <p>바울이 베드로의 행동을 부르는 단어가 충격적이다 — <strong>"위선"(hypocrisy)</strong>. 헬라어 <em>hypokrisis</em>는 원래 연극 무대에서 가면을 쓰고 연기하는 것을 가리키는 말이었다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">티모시 조지 · 위선이라는 단어</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>위선은 본래 가면을 쓴다는 뜻이다. 베드로는 자기가 진짜 믿는 것이 아닌 다른 것을 행동으로 보여주고 있었다. 그는 이방인 신자가 동등한 형제라는 걸 진심으로 믿었다. 그러나 압박이 오자 자신이 믿는 것과 다르게 행동했다. 그게 위선이다.</p>
+      </blockquote>
+      <div class="quote-src">Timothy George · Galatians (NAC)</div>
+    </div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>베드로는 거짓 신학을 가졌던 게 아니다. 그는 옳은 것을 알고 있었다. 다만 압박 앞에서 옳은 것을 살아내지 못했을 뿐이다. <strong>이게 바울이 가장 무서워한 것</strong> — 옳은 것을 믿으면서 옳지 않게 사는 것.</p>
+    </div>
+  </section>
+
+  <!-- 그림 3 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">PICTURE III</span>
+    </div>
+    <h2 class="section-title">이신칭의 선언</h2>
+    <div class="section-sub">갈라디아서 2:15–21 · 이야기에서 신학으로</div>
+
+    <div class="body">
+      <p>2:14까지는 이야기였다. 그런데 2:15부터 갑자기 신학적 선언으로 바뀐다. 베드로에게 한 말이 어느 순간 갈라디아 교인들에게 한 말이 되어 있다. 이 전환이 너무 빨라서 처음 읽으면 정신이 없다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">티모시 조지 · 두 청중이 겹친다</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>여기서 어디까지가 베드로에게 한 말이고 어디부터 갈라디아 교인들에게 한 말인지 분명하게 나누기 어렵다. 두 대상이 바울의 마음 속에서 분리할 수 없게 얽혀 있기 때문이다.</p>
+      </blockquote>
+      <div class="quote-src">Timothy George · Galatians (NAC)</div>
+    </div>
+
+    <div class="body" style="margin-top: 32px;">
+      <p>그래서 2:15–21을 이해하는 가장 쉬운 방법은 — <strong>이게 베드로에게 한 말이자 동시에 우리에게 한 말이라는 걸 받아들이는 것</strong>.</p>
+      <p>이 절이 갈라디아서 전체의 심장이다.</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 24px;">
+      <p>사람이 의롭게 되는 것은 율법의 행위로 말미암음이 아니요 오직 예수 그리스도를 믿음으로 말미암는 줄 알므로 우리도 그리스도 예수를 믿나니 이는 우리가 율법의 행위로서가 아니고 그리스도를 믿음으로써 의롭다 함을 얻으려 함이라</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">갈 2:16</div>
+
+    <div class="body" style="margin-top: 24px;">
+      <p>한 절 안에 "율법의 행위가 아니라 믿음으로"가 <strong>세 번 반복</strong>된다. 바울은 이걸 한 번 말하는 게 아니라, 강조하고, 강조하고, 또 강조한다.</p>
+      <p>이제 뒤를 돌아보자. 베드로가 식사 자리에서 빠진 행동이 결국 무엇을 말하고 있었는가? <strong>"이방인은 율법의 행위(할례, 식사 규정)를 더해야 진짜 하나님의 백성이 된다."</strong></p>
+      <p>바울이 베드로를 꾸짖은 이유가 여기서 명확해진다. 그건 식사 예절 문제가 아니었다. 복음이냐 거짓 복음이냐의 문제였다. 그래서 2:15–21이 안디옥 이야기 직후에 곧바로 이어진다 — 이 둘은 같은 사건이다.</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 28px;">
+      <p>내가 그리스도와 함께 십자가에 못 박혔나니 그런즉 이제는 내가 사는 것이 아니요 오직 내 안에 그리스도께서 사시는 것이라 이제 내가 육체 가운데 사는 것은 나를 사랑하사 나를 위하여 자기 자신을 버리신 하나님의 아들을 믿는 믿음 안에서 사는 것이라</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">갈 2:20</div>
+
+    <div class="body" style="margin-top: 24px;">
+      <p>여기서 바울이 말하는 것은 시적 비유가 아니다. 정말로 일어난 일을 말하고 있다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">루터 · articulus justificationis</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>칭의의 결정적 교리(<em>articulus justificationis</em>) — 이것은 교회가 서고 무너지는 자리다. 우리는 단번에 의롭게 되지 않는다. 매일, 매 순간 우리는 다시 의롭게 된다.</p>
+      </blockquote>
+      <div class="quote-src">Martin Luther · Commentary on Galatians (1535)</div>
+    </div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>루터가 말한 "교회가 서고 무너지는 자리." 이 한 교리가 무너지면 모든 것이 무너진다는 말이다. 베드로가 식사 자리에서 빠진 작은 행동이 왜 그렇게 큰 일이었는지 — 바로 이 교리가 거기서 흔들리고 있었기 때문이다.</p>
+    </div>
+  </section>
+
+  <!-- 한 장을 정리하면 -->
+  <section class="section">
+    <div class="section-num">§ 한 장을 정리하면</div>
+    <h2 class="section-title">하나의 진실, 세 각도</h2>
+    <div class="section-sub">— 다른 이야기가 아니라 같은 이야기</div>
+
+    <div class="body">
+      <p><strong>그림 1 (2:1–10)</strong> — 예루살렘 사도들도 인정했다. 복음에 할례를 더할 필요는 없다.</p>
+      <p><strong>그림 2 (2:11–14)</strong> — 베드로가 그 진실을 행동으로 부정했을 때, 바울은 그를 공개적으로 꾸짖었다. 사소한 일이 아니었다.</p>
+      <p><strong>그림 3 (2:15–21)</strong> — 그래서 이 진실을 신학으로 선언한다 — 사람이 의롭게 되는 것은 율법의 행위가 아니라 오직 그리스도를 믿음으로.</p>
+    </div>
+
+    <div class="pull">
+      <q>이 셋은 다른 이야기가 아니다. 하나의 진실이 세 각도에서 보이는 것이다.</q>
+    </div>
+  </section>
+
+  <!-- 우리에게 말하는 것 -->
+  <section class="section">
+    <div class="section-num">§ 우리에게</div>
+    <h2 class="section-title">갈라디아서 2장이 우리에게 말하는 것</h2>
+    <div class="section-sub">— 세 가지 작은 결</div>
+
+    <div class="body">
+      <p><strong>1. 위대한 사람도 무너질 수 있다.</strong></p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">조지 · 베드로의 무너짐</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>베드로가 압박에 굴복할 이유는 하나도 없었다. 그는 예수님의 가장 가까운 제자였다. 부활의 첫 증인이었다. 오순절 성령 강림을 목격했다. 심지어 이방인에게 복음이 처음 열린 자리(고넬료)에서도 하나님이 그를 도구로 쓰셨다. 그런데 한 순간의 위기에 그는 무너졌고, 자기 본보기로 다른 많은 사람들까지 잘못된 길로 이끌었다.</p>
+      </blockquote>
+      <div class="quote-src">Timothy George · Galatians (NAC)</div>
+    </div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>베드로 같은 사람도 이렇게 무너졌다. 우리도 그럴 수 있다는 뜻이다. 그리고 동시에 — 무너졌을 때 회복할 수 있다는 뜻이기도 하다. 베드로는 결국 회복됐고, 후에 바울과 다시 협력했다.</p>
+      <p><strong>2. 복음 앞에서는 누구도 특별 대우 받지 않는다.</strong> 베드로조차 잘못했을 때 공개적으로 꾸짖음을 받았다. 직책이나 명성이 복음의 진실보다 위에 있을 수 없다.</p>
+      <p><strong>3. 식탁에서 일어나는 일이 가장 중요할 때가 있다.</strong> 이게 어쩌면 가장 마음에 남는 부분이다. 우리가 누구와 함께 먹는가, 누구를 식탁에 받아들이는가. 이게 결코 사소한 일이 아니다. 그 작은 행동들이 우리가 진짜 무엇을 믿는지 보여준다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">조지 · 식탁의 의미</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>역사 내내, 특히 선교 현장에서, 단순한 식사 한 끼를 함께 나누는 것은 그리스도 안에서의 구원의 메시지가 의미하는 연합과 친교를 상징해 왔다.</p>
+      </blockquote>
+      <div class="quote-src">Timothy George · Galatians (NAC)</div>
+    </div>
+  </section>
+
+  <!-- 한 절만 가져간다면 -->
+  <div class="takeaway">
+    <div class="takeaway-label">한 절만 가져간다면</div>
+
+    <blockquote class="takeaway-verse">
+      내가 그리스도와 함께 십자가에 못 박혔나니 그런즉 이제는 내가 사는 것이 아니요 오직 내 안에 그리스도께서 사시는 것이라
+      <cite>갈라디아서 2:20</cite>
+    </blockquote>
+
+    <div class="takeaway-tail">
+      <p>이 한 절이 갈라디아서 2장의 모든 것이다. 베드로가 잠시 잊었던 것. 바울이 꾸짖으며 회복시키려 했던 것. 우리가 매일 다시 잊는 것 — 그러나 매일 다시 진실인 것.</p>
+
+      <p class="stanza">
+        <span>옛 나는 그리스도와 함께 십자가에 못 박혔다.</span>
+        <span>이제 사는 것은 내 안에 사시는 그리스도다.</span>
+      </p>
+
+      <p>이걸 머리로 아는 것과 마음으로 아는 것은 다르다. 그리고 매일을 그렇게 사는 것은 또 다른 차원이다. 그래서 갈라디아서가 우리에게 12주 동안 — 아니 한 평생 — 필요한 책이다.</p>
+    </div>
+  </div>
+
+  <!-- 헌정 -->
+  <div class="bonus-dedication">
+    <strong>SELAH · BONUS</strong><br>
+    이 매거진은 마틴 루터 『갈라디아서 주석』(1535),<br>
+    필립 라이켄 『Galatians』 (REC), 티모시 조지 『Galatians』 (NAC) 의<br>
+    갈라디아서 2장 풀이를 바탕으로 정리한 것입니다.
+  </div>
+
+</main>
+
+</body>
+</html>
