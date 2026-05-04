@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>일이 단순하지 않은 이유 · Selah Note</title>
+
+<meta name="description" content="타락 전후로 노동은 어떻게 달라졌는가 — Selah Note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="일이 단순하지 않은 이유">
+<meta property="og:description" content="타락 전후로 노동은 어떻게 달라졌는가 — Selah Note">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="../daily/daily.css">
+
+<style>
+/* 번외편 전용 — galatians-2 매거진과 동일한 시스템 */
+.bonus-mark {
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  text-transform: none;
+}
+.bonus-mark::before { content: "✦ "; }
+
+/* 인트로 박스 */
+.intro-box {
+  margin: 36px 0 8px;
+  padding: 26px 24px;
+  background: rgba(26, 47, 58, 0.04);
+  border-left: 2px solid var(--accent);
+}
+.intro-box p {
+  margin: 0 0 14px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-character;
+}
+.intro-box p:last-child { margin: 0; }
+
+/* 챕터 라벨 */
+.picture-label {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 8px 0 4px;
+}
+.picture-num {
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.picture-num::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  vertical-align: middle;
+  margin-right: 10px;
+  opacity: 0.7;
+}
+
+/* 비교 표 — 타락 전후 */
+.compare-wrap {
+  margin: 32px 0 8px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  overflow-x: auto;
+}
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Noto Serif KR", serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.compare thead th {
+  text-align: left;
+  padding: 14px 12px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent);
+  border-bottom: 1px solid var(--line);
+  background: rgba(26, 47, 58, 0.03);
+}
+.compare tbody td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+.compare tbody tr:last-child td { border-bottom: none; }
+.compare td.col-area {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  white-space: nowrap;
+  width: 22%;
+}
+.compare td.col-before {
+  color: var(--ink);
+}
+.compare td.col-after {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* 네 가지 특징 — 타락 전 */
+.features {
+  margin: 28px 0 4px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+.features li {
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  padding: 16px 18px 16px 22px;
+  border-left: 2px solid var(--line);
+  background: rgba(26, 47, 58, 0.025);
+}
+.features li strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+/* 저주 5 요소 */
+.curse-list {
+  margin: 28px 0 8px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+.curse-list li {
+  font-family: "Noto Serif KR", serif;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  padding-left: 22px;
+  position: relative;
+}
+.curse-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 12px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.curse-list li q {
+  display: block;
+  font-style: italic;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 4px;
+  quotes: """ """;
+}
+
+/* 마무리 */
+.takeaway {
+  margin: 40px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid var(--ink);
+}
+.takeaway-label {
+  font-family: "Pretendard", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.takeaway-verse {
+  font-family: "Noto Serif KR", serif;
+  font-size: clamp(17px, 4vw, 19px);
+  line-height: 1.75;
+  color: var(--ink);
+  border-left: 2px solid var(--accent);
+  padding: 10px 0 10px 20px;
+  margin: 0 0 22px;
+  font-weight: 500;
+}
+.takeaway-verse cite {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+.takeaway-tail {
+  font-family: "Noto Serif KR", serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  text-align: justify;
+  text-justify: inter-character;
+}
+.takeaway-tail p { margin: 0 0 12px; }
+.takeaway-tail p:last-child { margin: 0; }
+.takeaway-tail .stanza {
+  margin: 18px 0;
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink);
+  line-height: 1.7;
+}
+.takeaway-tail .stanza span {
+  display: block;
+}
+
+/* 헌정 */
+.bonus-dedication {
+  margin-top: 56px;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--line-soft);
+  font-family: "Noto Serif KR", serif;
+  font-style: italic;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+  text-align: center;
+}
+.bonus-dedication strong {
+  color: var(--accent);
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+/* dropcap 끄기 */
+.section .body p:first-child::first-letter {
+  all: unset;
+}
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail" data-bg-color="#1a2f3a">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1a2f3a"/>
+    <g transform="translate(600 400)" fill="none" stroke="#faf7f1" stroke-width="6" stroke-linecap="round">
+      <path d="M -180 0 L 180 0" opacity="0.6"/>
+      <path d="M -120 -80 L -120 80" opacity="0.4"/>
+      <path d="M 0 -110 L 0 110" opacity="0.85"/>
+      <path d="M 120 -80 L 120 80" opacity="0.4"/>
+    </g>
+    <text x="600" y="650" text-anchor="middle" fill="#faf7f1" font-family="serif" font-size="40" font-style="italic" letter-spacing="6">On Labor</text>
+  </svg>
+</template>
+
+<main class="page">
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="meta-left"><span class="bonus-mark">Note</span></div>
+    <div class="meta">Note · On Labor</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="series">For Her · 노동 신학 길잡이</div>
+    <h1 class="h1">일이 단순하지<br>않은 이유</h1>
+
+    <div class="scripture-cite">창세기 1–3 · 전도서 2 · 요한계시록 22</div>
+    <blockquote class="scripture">
+      <p>타락 전후로 노동은 어떻게 달라졌는가.</p>
+    </blockquote>
+  </section>
+
+  <!-- 들어가며 -->
+  <section class="section">
+    <div class="section-num">§ 들어가며</div>
+    <h2 class="section-title">그 질문의 무게</h2>
+    <div class="section-sub">— 일을 늘 즐겁게 할 순 없을까</div>
+
+    <div class="body">
+      <p>"일을 늘 즐겁게 할 순 없을까. 왜 노동은 단순하지 않은가. 왜 어떤 날은 기쁘지 않은가."</p>
+      <p>이 질문이 단순한 푸념처럼 들릴 수 있지만, 사실은 인간 존재의 가장 깊은 자리를 건드리는 질문이다. 철학자, 신학자, 시인이 수천 년 동안 답해온 그 질문이다. 그리고 성경은 첫 세 장 안에서 이미 그 답을 주고 있다.</p>
+    </div>
+
+    <div class="intro-box">
+      <p>답을 짧게 말하면 이렇다 — <strong>일은 본래 좋은 것이었지만, 지금의 일은 균열이 가 있다.</strong></p>
+      <p>그 균열이 어디서 왔는지, 그래서 무엇을 잃었고 무엇이 남았는지를 알면, "왜 어떤 날은 기쁘지 않은가"라는 질문이 더 이상 자기 부족함의 신호가 아니라 <strong>진실을 정확히 감지하는 영혼의 신호</strong>라는 게 보인다.</p>
+    </div>
+  </section>
+
+  <!-- 챕터 1 — 타락 전 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">CHAPTER I</span>
+    </div>
+    <h2 class="section-title">타락 전, 노동은 본래 무엇이었는가</h2>
+    <div class="section-sub">창세기 1–2 · 동산 안에서의 일</div>
+
+    <div class="body">
+      <p>성경의 첫 페이지에서 인간은 <strong>일하는 존재</strong>로 만들어진다. 타락 이후에야 일이 시작된 게 아니다. 에덴 동산 안에서 이미 인간은 일을 한다.</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 24px;">
+      <p>여호와 하나님이 그 사람을 이끌어 에덴동산에 두사 그것을 경작하며 지키게 하시고</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">창세기 2:15</div>
+
+    <div class="body" style="margin-top: 24px;">
+      <p>여기서 "경작하며 지키다"라는 두 동사가 중요하다. 히브리어 원문은 <em>avad</em>(경작하다, 섬기다)와 <em>shamar</em>(지키다, 보호하다)다. 둘 다 능동적이고 책임 있는 행위다. 인간은 처음부터 빈둥거리는 존재가 아니라 <strong>하나님의 동산을 가꾸고 보호하는 책임을 맡은 존재</strong>로 창조됐다.</p>
+    </div>
+
+    <div class="pull">
+      <q>이게 신학에서 "문화 명령"이라 불리는 것이다 — 인간은 단순히 동산을 지키는 데 그치지 않고, 땅 전체를 가꾸고 다스려서 하나님의 영광을 드러내라는 부름을 받았다.</q>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">헤르만 바빙크 · 개혁교의학 3권</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>그들은 세상을 정복하고 다스리도록 세상으로 보내졌다. 여기에 모든 문화의 시작과 첫 원리가 놓여 있다.</p>
+      </blockquote>
+      <div class="quote-src">Herman Bavinck · Reformed Dogmatics, Vol. 3</div>
+    </div>
+
+    <h3 class="section-sub" style="margin-top: 36px; font-weight: 600;">타락 전 노동의 네 가지 일치</h3>
+
+    <ul class="features">
+      <li>
+        <strong>① 일과 사람이 일치했다</strong>
+        자기 본성과 자기가 하는 일 사이에 균열이 없었다. 아담이 동산을 가꾸는 것은 그가 누구인지를 표현하는 자연스러운 흐름이었지, 자기와 분리된 의무가 아니었다.
+      </li>
+      <li>
+        <strong>② 일과 결과가 일치했다</strong>
+        노력이 들어가면 그만큼의 열매가 나왔다. 가시도 엉겅퀴도 없었다. 좌절이 없었다.
+      </li>
+      <li>
+        <strong>③ 일과 하나님이 일치했다</strong>
+        일은 곧 하나님과의 사귐이었다. 동산을 가꾸는 것은 하나님과 함께 걷는 행위였다. 일과 예배 사이에 분리가 없었다.
+      </li>
+      <li>
+        <strong>④ 일과 안식이 일치했다</strong>
+        안식일이 처음부터 있었다(창 2:2–3). 일과 안식은 충돌하는 것이 아니라 한 호흡의 두 박자였다.
+      </li>
+    </ul>
+  </section>
+
+  <!-- 챕터 2 — 균열 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">CHAPTER II</span>
+    </div>
+    <h2 class="section-title">균열, 한 결정이 모든 것을 바꿨다</h2>
+    <div class="section-sub">창세기 3 · 일에 떨어진 저주</div>
+
+    <div class="body">
+      <p>한 행동이었다. 한 열매를 먹은 것. 그러나 그 한 행동이 우주 전체의 질서를 바꿨다. 타락 이후 하나님이 아담에게 선언하신 말씀은, 다른 어떤 분야보다도 <strong>일에 관한 것</strong>이었다.</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 24px;">
+      <p>땅은 너로 말미암아 저주를 받고 너는 네 평생에 수고하여야 그 소산을 먹으리라. 땅이 네게 가시덤불과 엉겅퀴를 낼 것이라 네가 먹을 것은 밭의 채소인즉 네가 흙으로 돌아갈 때까지 얼굴에 땀을 흘려야 먹을 것을 먹으리니</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">창세기 3:17–19</div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>이 짧은 구절에 <strong>노동이 어떻게 변했는지</strong>가 다 들어 있다.</p>
+    </div>
+
+    <ul class="curse-list">
+      <li>
+        <q>땅은 너로 말미암아 저주를 받고</q>
+        일터 자체가 저주 아래 들어갔다. 인간 마음만 변한 것이 아니라, 일이 일어나는 환경 자체가 변했다.
+      </li>
+      <li>
+        <q>수고하여야 그 소산을 먹으리라</q>
+        일과 보상 사이에 좌절이 들어왔다. 노력이 자동으로 결과로 이어지지 않는다.
+      </li>
+      <li>
+        <q>가시덤불과 엉겅퀴를 낼 것이라</q>
+        원하지 않는 것들이 자라난다. 우리가 만들지 않았는데 막아야 하는 것, 우리가 원하지 않는데 처리해야 하는 것 — 이게 노동의 일상이 됐다.
+      </li>
+      <li>
+        <q>얼굴에 땀을 흘려야</q>
+        일은 이제 즐거움이 아니라 고통이다. 흘리는 땀이 본래는 기쁨의 표현이었지만, 이제는 부담의 표현이 됐다.
+      </li>
+      <li>
+        <q>흙으로 돌아갈 때까지</q>
+        모든 일에 끝이 있고, 그 끝은 죽음이다. 일이 영원하지 않다.
+      </li>
+    </ul>
+
+    <div class="body" style="margin-top: 36px;">
+      <p>타락 후 수천 년이 흐른 뒤, 가장 지혜로웠다고 불리는 한 왕이 노동에 관해 이렇게 적었다 —</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 16px;">
+      <p>사람이 해 아래에서 행하는 모든 수고와 마음에 애쓰는 것이 무슨 소득이 있으랴. 일평생에 근심하며 수고하는 것이 슬픔뿐이라 그의 마음이 밤에도 쉬지 못하나니 이것도 헛되도다</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">전도서 2:22–23</div>
+
+    <div class="body" style="margin-top: 24px;">
+      <p>솔로몬이 본 것은 단순한 우울이 아니었다. 그는 노동의 구조 자체에 들어간 균열을 본 것이다. <strong>일평생 근심하며 수고하는 것이 슬픔뿐</strong>이라는 진단은 게으른 자의 한탄이 아니라, 가장 부지런했던 한 사람의 정직한 고백이다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">웨스트민스터 소교리문답 Q.19</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>타락 이후 인간은 이 모든 인생의 비참함에 종속되었다. 노동의 좌절은 그 비참함의 가장 일상적인 형태다.</p>
+      </blockquote>
+      <div class="quote-src">Westminster Shorter Catechism · Q.19</div>
+    </div>
+  </section>
+
+  <!-- 챕터 3 — 비교 표 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">CHAPTER III</span>
+    </div>
+    <h2 class="section-title">타락 전후, 한눈에 비교</h2>
+    <div class="section-sub">— 무엇이 잃어졌고, 무엇이 남았는가</div>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>영역</th>
+            <th>타락 전</th>
+            <th>타락 후</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-area">일과 자아</td>
+            <td class="col-before">일이 곧 자기 표현</td>
+            <td class="col-after">일과 자기 사이에 거리, 소외</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 결과</td>
+            <td class="col-before">노력이 곧 열매</td>
+            <td class="col-after">노력해도 가시와 엉겅퀴, 좌절</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 환경</td>
+            <td class="col-before">동산이 일을 받쳐줌</td>
+            <td class="col-after">땅 자체가 저주 아래, 자연이 저항</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 몸</td>
+            <td class="col-before">노동이 기쁨의 흐름</td>
+            <td class="col-after">얼굴에 땀, 피로와 고통</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 시간</td>
+            <td class="col-before">끝없는 의미</td>
+            <td class="col-after">죽음으로 끝나는 한정성</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 하나님</td>
+            <td class="col-before">사귐의 자리</td>
+            <td class="col-after">하나님께 숨고 싶은 자리</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 사람</td>
+            <td class="col-before">함께하는 협력</td>
+            <td class="col-after">시기와 경쟁, 비교</td>
+          </tr>
+          <tr>
+            <td class="col-area">일과 안식</td>
+            <td class="col-before">한 호흡의 두 박자</td>
+            <td class="col-after">충돌하는 두 가치</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pull">
+      <q>타락은 일의 본질을 없애지 않았다. 일에 균열을 만들었을 뿐이다.</q>
+    </div>
+
+    <div class="body">
+      <p>일은 여전히 좋은 것이다. 인간은 여전히 일하도록 만들어졌다. 그러나 그 일이 더 이상 매끄럽게 흐르지 않는다. 모든 일에 작은 균열들이 끼어 있다.</p>
+    </div>
+  </section>
+
+  <!-- 챕터 4 — 그러나 일반은혜 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">CHAPTER IV</span>
+    </div>
+    <h2 class="section-title">그러나, 균열 안에서도 작동하는 은혜</h2>
+    <div class="section-sub">— 일반은혜와 노동의 의미</div>
+
+    <div class="body">
+      <p>여기서 멈추면 절망뿐이다. 그러나 성경은 멈추지 않는다. 타락 직후부터 은혜가 작동하기 시작한다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">바빙크 · 유머와 눈물이 섞인 웃음</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>타락 직후, 즉시 두 원리가 동시에 작동한다 — 진노와 은혜, 정의와 자비. 이 두 원리에 비추어서만 우리는 우리가 아는 세상을 해석할 수 있다. 이 세상은 유머와 눈물이 섞인 웃음으로 가득 찬 세상, 십자가의 표 아래 존재하는 세상, 타락 직후 곧바로 슬픔의 사람 그리스도에게 주어진 세상이다.</p>
+      </blockquote>
+      <div class="quote-src">Herman Bavinck · Reformed Dogmatics, Vol. 3</div>
+    </div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>바빙크가 짚은 이 표현이 강력하다 — <strong>"유머와 눈물이 섞인 웃음."</strong> 타락 후 세상은 완전히 어둡지 않다. 완전히 밝지도 않다. 둘이 섞여 있다. 그래서 일도 그렇다. 어떤 날은 기쁨이 흘러넘치고, 어떤 날은 견디기만 한다. 둘 다 진실이다.</p>
+    </div>
+
+    <div class="quote">
+      <div class="quote-head">
+        <span class="quote-tag">참고</span>
+        <span class="quote-kicker">바빙크 · 노동과 하나님의 형상</span>
+      </div>
+      <blockquote class="quote-body">
+        <p>인간의 통치는 완전히 잃어버린 것이 아니라, 노동을 통해 확장된다(시 8편). 타락한 인류 안에서도 그것이 창조된 하나님의 형상은 여전히 식별 가능하다.</p>
+      </blockquote>
+      <div class="quote-src">Herman Bavinck · Reformed Dogmatics, Vol. 3</div>
+    </div>
+
+    <div class="body" style="margin-top: 28px;">
+      <p>이 한 문장에 답이 있다. <strong>노동을 통해 인간은 여전히 자기 안에 있는 하나님의 형상을 드러낸다.</strong> 일이 힘들어도, 일이 완전하지 않아도, 일하는 그 행위 자체가 우리가 누구인지를 보여준다. 우리는 짐승처럼 본능으로 사는 게 아니라, 의미를 만들고 질서를 세우고 무언가를 가꾸도록 부름받은 존재다.</p>
+    </div>
+
+    <div class="pull">
+      <q>우리가 일에서 좌절하는 이유는, 일이 본래 좋은 것이었기 때문이다.</q>
+    </div>
+
+    <div class="body">
+      <p>만약 일이 본래 무의미했다면, 좌절도 무의미할 것이다. 그러나 좌절이 의미 있다는 것은 — 우리가 잃어버린 무언가를 우리 영혼이 기억하고 있다는 뜻이다.</p>
+    </div>
+  </section>
+
+  <!-- 챕터 5 — 그래서 어떤 날은 기쁘지 않다 -->
+  <section class="section">
+    <div class="section-num">§ 그래서</div>
+    <h2 class="section-title">왜 어떤 날은 기쁘지 않은가</h2>
+    <div class="section-sub">— 두 가지 답</div>
+
+    <div class="body">
+      <p><strong>첫째, 그날 우리는 정확히 보고 있는 것이다.</strong> 노동에 가시와 엉겅퀴가 있다는 것을, 일과 자기 사이에 거리가 있다는 것을, 흘리는 땀이 본래는 기쁨이어야 했지만 지금은 부담이라는 것을. 그날의 우울은 부족함의 신호가 아니다. <strong>진실을 감지하는 신호다.</strong></p>
+      <p><strong>둘째, 그러나 그날도 일반은혜는 작동하고 있다.</strong> 일이 완전히 무너지지 않았다. 작은 즐거움이 사이사이 끼어든다. 동료의 한 마디, 일이 잘 풀리는 한 순간, 작은 성취. 그것이 바로 바빙크가 말한 "유머가 섞인 눈물"이다. 그 작은 빛들이 우리에게 잃어버린 동산을 떠올리게 한다.</p>
+    </div>
+  </section>
+
+  <!-- 챕터 6 — 새 창조 -->
+  <section class="section">
+    <div class="picture-label">
+      <span class="picture-num">CHAPTER V</span>
+    </div>
+    <h2 class="section-title">그리고 약속, 새 창조</h2>
+    <div class="section-sub">요한계시록 22 · 다시 저주가 없으며</div>
+
+    <div class="body">
+      <p>성경은 노동의 균열로 끝나지 않는다. 가장 마지막 페이지에서 그것이 회복되는 그림을 준다.</p>
+    </div>
+
+    <blockquote class="scripture" style="margin-top: 24px;">
+      <p>다시 저주가 없으며 하나님과 그 어린 양의 보좌가 그 가운데에 있으리니 그의 종들이 그를 섬기며</p>
+    </blockquote>
+    <div class="scripture-cite" style="text-align: right; margin-top: 8px;">요한계시록 22:3</div>
+
+    <div class="body" style="margin-top: 24px;">
+      <p><strong>"다시 저주가 없으며"</strong> — 일에서의 저주가 사라진다.<br>
+      <strong>"그의 종들이 그를 섬기며"</strong> — 그러나 일이 사라지는 것은 아니다. 새 창조에서도 우리는 여전히 일한다. 다만 그 일은 다시 동산의 일이다. 균열 없는 일. 좌절 없는 일. 자기 본성과 일이 일치하는 일.</p>
+      <p>지금 우리는 두 그림 사이에 산다. 잃어버린 동산과 다가올 새 창조 사이. 그래서 우리의 일은 두 얼굴을 가진다. 균열이 있고, 동시에 약속이 있다. 좌절이 있고, 동시에 의미가 있다.</p>
+    </div>
+
+    <div class="pull">
+      <q>"일을 늘 즐겁게 할 순 없을까" — 이 질문은 사실 깊은 갈망의 표현이다. 그 갈망은 헛된 것이 아니다. 우리가 한때 살았던 자리, 그리고 다시 돌아갈 자리에 대한 영혼의 기억이다.</q>
+    </div>
+
+    <div class="body">
+      <p>지금 그 갈망을 완전히 채울 수 있는 자리는 없다. 그래서 어떤 날은 기쁘지 않다. 그게 정상이다. 그날의 슬픔은 결함이 아니라, 우리가 본래 더 큰 것을 위해 만들어진 존재라는 증거다.</p>
+    </div>
+  </section>
+
+  <!-- 한 절만 가져간다면 -->
+  <div class="takeaway">
+    <div class="takeaway-label">한 줄로 가져간다면</div>
+
+    <blockquote class="takeaway-verse">
+      타락 전, 일은 단순했다. 타락 후, 일은 균열이 갔다. 그러나 그 균열 안에서도 일은 여전히 인간의 영광이고, 잃어버린 것을 기억하는 자리이며, 다가올 회복을 기다리는 자리다.
+      <cite>Selah · Note</cite>
+    </blockquote>
+
+    <div class="takeaway-tail">
+      <p>그래서 어떤 날 일이 기쁘지 않다고 자기를 탓하지 말 것. 그날 너는 정확히 보고 있는 것이다. 그리고 그날도 작은 빛들은 여전히 끼어든다.</p>
+
+      <p class="stanza">
+        <span>잃어버린 동산을 영혼이 기억하고,</span>
+        <span>다가올 새 창조를 영혼이 기다린다.</span>
+      </p>
+
+      <p>그 빛들을 알아채는 것이 — 지금 이 사이의 시간을 살아가는 한 방법이다.</p>
+    </div>
+  </div>
+
+  <!-- 헌정 -->
+  <div class="bonus-dedication">
+    <strong>SELAH · NOTE</strong><br>
+    이 매거진은 헤르만 바빙크 『개혁교의학』 3권,<br>
+    웨스트민스터 신앙고백서 소교리문답,<br>
+    그리고 창세기 1–3장과 전도서 2장의 본문을 바탕으로 정리한 것입니다.
+  </div>
+
+</main>
+
+</body>
+</html>
